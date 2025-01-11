@@ -9,7 +9,6 @@
   let minutesLeft = 0;
   let secondsLeft = 0;
   let millisecondsLeft = 0;
-  let nanosecondsLeft = 0;
 
   function updateCountdown() {
     const now = new Date();
@@ -18,9 +17,6 @@
     minutesLeft = differenceInMinutes(MARRIAGE_DATE, now) % 60;
     secondsLeft = differenceInSeconds(MARRIAGE_DATE, now) % 60;
     millisecondsLeft = now.getMilliseconds();
-    
-    // Simulate nanoseconds with a rapidly changing number
-    nanosecondsLeft = Math.floor(Math.random() * 1000);
   }
 
   onMount(() => {
@@ -53,13 +49,8 @@
       <span class="number">{millisecondsLeft}</span>
       <span class="label">Milliseconds</span>
     </div>
-    <div class="time-block">
-      <span class="number">{nanosecondsLeft}</span>
-      <span class="label">Nanoseconds*</span>
-    </div>
   </div>
   <p>Until our special day on April 9th, 2038!</p>
-  <small>* Simulated nanosecond display</small>
 </main>
 
 <style>
