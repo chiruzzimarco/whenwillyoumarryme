@@ -20,7 +20,7 @@ entryPoints:
 certificatesResolvers:
   letsencrypt:
     acme:
-      email: your-email@example.com
+      email: chiruzzi.marco@gmail.com
       storage: /letsencrypt/acme.json
       caServer: "https://acme-v02.api.letsencrypt.org/directory"
       httpChallenge:

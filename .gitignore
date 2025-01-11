@@ -2,4 +2,5 @@
 .env
 .direnv
 
+dist
 node_modules
