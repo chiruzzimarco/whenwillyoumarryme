@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
 
-  const MARRIAGE_DATE = new Date('2038-04-09');
+  const MARRIAGE_DATE = new Date('2037-08-09');
 
   let daysLeft = 0;
   let hoursLeft = 0;
@@ -47,7 +47,7 @@
         </div>
       </div>
       <p class="wedding-date">Buona fortuna, fino al giorno del nostro matrimonio! 💍</p>
-      <p class="wedding-location">April 9th, 2038</p>
+      <p class="wedding-location">August 9th, 2037</p>
     </div>
   </div>
 </main>
