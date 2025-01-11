@@ -80,7 +80,7 @@
 
   .container {
     width: 90%;
-    max-width: 800px;
+    max-width: 1000px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -114,7 +114,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 100px;
+    min-width: 120px;
     background-color: rgba(139, 69, 19, 0.05);
     padding: 15px;
     border-radius: 10px;
@@ -156,7 +156,7 @@
     }
 
     .time-block {
-      min-width: 80px;
+      min-width: 100px;
     }
 
     .number {
