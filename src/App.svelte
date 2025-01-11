@@ -27,7 +27,7 @@
 <main>
   <div class="container">
     <div class="heart-background">
-      <h1>Ti rimane ancora poco tempo...</h1>
+      <h1>Il tempo stringe...</h1>
       <div class="countdown">
         <div class="time-block">
           <span class="number">{daysLeft}</span>
