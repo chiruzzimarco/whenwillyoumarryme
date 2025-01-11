@@ -1,0 +1,20 @@
+{
+  "name": "when-will-you-marry-me",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@electric-sql/prisma": "latest",
+    "@electric-sql/tauri": "latest",
+    "date-fns": "^2.30.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.0.0",
+    "vite": "^4.3.9"
+  }
+}

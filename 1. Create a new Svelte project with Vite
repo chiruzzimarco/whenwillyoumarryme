@@ -1,0 +1,4 @@
+npm create vite@latest when-will-you-marry-me -- --template svelte
+cd when-will-you-marry-me
+npm install electric-sql @electric-sql/prisma @electric-sql/tauri
+npm install date-fns
