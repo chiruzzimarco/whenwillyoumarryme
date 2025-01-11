@@ -16,3 +16,16 @@ A romantic countdown application that tracks the days, hours, and minutes until 
 ## Installation
 
 1. Clone the repository:
+2. Then run:
+
+    cd when-will-you-marry-me
+    npm install
+
+3. To run in dev mode:
+
+    npm run dev
+
+4. To run in preview mode:
+
+    npm run build
+    npm run preview
