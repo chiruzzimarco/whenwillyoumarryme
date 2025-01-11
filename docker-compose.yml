@@ -6,8 +6,9 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.wedding-countdown.rule=Host(`whenwillyoumarryme.cmzx.it`)"
+      - "traefik.http.routers.wedding-countdown.entrypoints=web"
       - "traefik.http.routers.wedding-countdown.entrypoints=websecure"
-      - "traefik.http.routers.wedding-countdown.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.wedding-countdown.tls.certresolver=myresolver"
       - "traefik.http.services.wedding-countdown.loadbalancer.server.port=3000"
     networks:
       - open-oni_default
