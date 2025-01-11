@@ -52,7 +52,7 @@
           <span class="label">Secondi</span>
         </div>
       </div>
-      <p class="wedding-date">Buona fortuna, fino al giorno del nostro matrimonio! 💍</p>
+      <p class="wedding-date">Buona fortuna Alice, fino al giorno del nostro matrimonio! 💍</p>
       <p class="wedding-location">15 Agosto 2037</p>
     </div>
   </div>
