@@ -1,58 +1,31 @@
 <script>
   import { onMount } from 'svelte';
-  import { differenceInDays, differenceInHours, differenceInMinutes } from 'date-fns';
+  import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
 
   const MARRIAGE_DATE = new Date('2038-04-09');
   
   let daysLeft = 0;
   let hoursLeft = 0;
   let minutesLeft = 0;
-
-  // Store additional metadata in localStorage
-  function saveCountdownData(data) {
-    try {
-      localStorage.setItem('marriageCountdownData', JSON.stringify(data));
-    } catch (error) {
-      console.error('Failed to save countdown data', error);
-    }
-  }
-
-  function loadCountdownData() {
-    try {
-      const savedData = localStorage.getItem('marriageCountdownData');
-      return savedData ? JSON.parse(savedData) : null;
-    } catch (error) {
-      console.error('Failed to load countdown data', error);
-      return null;
-    }
-  }
+  let secondsLeft = 0;
+  let millisecondsLeft = 0;
+  let nanosecondsLeft = 0;
 
   function updateCountdown() {
     const now = new Date();
     daysLeft = differenceInDays(MARRIAGE_DATE, now);
     hoursLeft = differenceInHours(MARRIAGE_DATE, now) % 24;
     minutesLeft = differenceInMinutes(MARRIAGE_DATE, now) % 60;
-
-    // Optional: Save additional metadata
-    saveCountdownData({
-      daysLeft,
-      hoursLeft,
-      minutesLeft,
-      lastUpdated: now.toISOString()
-    });
+    secondsLeft = differenceInSeconds(MARRIAGE_DATE, now) % 60;
+    millisecondsLeft = now.getMilliseconds();
+    
+    // Simulate nanoseconds with a rapidly changing number
+    nanosecondsLeft = Math.floor(Math.random() * 1000);
   }
 
   onMount(() => {
-    // Try to load saved data first
-    const savedData = loadCountdownData();
-    if (savedData) {
-      daysLeft = savedData.daysLeft;
-      hoursLeft = savedData.hoursLeft;
-      minutesLeft = savedData.minutesLeft;
-    }
-
     updateCountdown();
-    const interval = setInterval(updateCountdown, 60000);
+    const interval = setInterval(updateCountdown, 1); // Update every millisecond
     return () => clearInterval(interval);
   });
 </script>
@@ -72,8 +45,21 @@
       <span class="number">{minutesLeft}</span>
       <span class="label">Minutes</span>
     </div>
+    <div class="time-block">
+      <span class="number">{secondsLeft}</span>
+      <span class="label">Seconds</span>
+    </div>
+    <div class="time-block">
+      <span class="number">{millisecondsLeft}</span>
+      <span class="label">Milliseconds</span>
+    </div>
+    <div class="time-block">
+      <span class="number">{nanosecondsLeft}</span>
+      <span class="label">Nanoseconds*</span>
+    </div>
   </div>
   <p>Until our special day on April 9th, 2038!</p>
+  <small>* Simulated nanosecond display</small>
 </main>
 
 <style>
@@ -87,18 +73,20 @@
     justify-content: center;
     gap: 20px;
     margin: 20px 0;
+    flex-wrap: wrap;
   }
   .time-block {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 100px;
   }
   .number {
-    font-size: 48px;
+    font-size: 36px;
     font-weight: bold;
   }
   .label {
-    font-size: 16px;
+    font-size: 14px;
     color: #666;
   }
 </style>
