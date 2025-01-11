@@ -16,12 +16,12 @@
     hoursLeft = differenceInHours(MARRIAGE_DATE, now) % 24;
     minutesLeft = differenceInMinutes(MARRIAGE_DATE, now) % 60;
     secondsLeft = differenceInSeconds(MARRIAGE_DATE, now) % 60;
-    millisecondsLeft = now.getMilliseconds();
+    millisecondsLeft = Math.floor(now.getMilliseconds() / 100) * 100; // Round to nearest 100ms
   }
 
   onMount(() => {
     updateCountdown();
-    const interval = setInterval(updateCountdown, 1); // Update every millisecond
+    const interval = setInterval(updateCountdown, 100); // Update every 100 milliseconds
     return () => clearInterval(interval);
   });
 </script>
