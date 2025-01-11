@@ -5,11 +5,11 @@ services:
     build: .
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wedding-countdown.rule=Host(`wedding.yourdomain.com`)"
+      - "traefik.http.routers.wedding-countdown.rule=Host(`whenwillyoumarryme.cmzx.it`)"
       - "traefik.http.routers.wedding-countdown.entrypoints=websecure"
       - "traefik.http.routers.wedding-countdown.tls.certresolver=letsencrypt"
     networks:
-      - traefik-network
+      - open-oni_default
 
 networks:
   traefik-network:
