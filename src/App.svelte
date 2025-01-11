@@ -47,6 +47,10 @@
           <span class="number">{secondsLeft}</span>
           <span class="label">Seconds</span>
         </div>
+        <div class="time-block">
+          <span class="number">{millisecondsLeft}</span>
+          <span class="label">Milliseconds</span>
+        </div>
       </div>
       <p class="wedding-date">Until Our Wedding Day 💍</p>
       <p class="wedding-location">April 9th, 2038</p>
