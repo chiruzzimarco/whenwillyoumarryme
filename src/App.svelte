@@ -67,19 +67,32 @@
     --accent-color: #D2691E;
   }
 
-  main {
+  * {
+    box-sizing: border-box;
     margin: 0;
-    height: 100vh;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  main {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--secondary-color);
     font-family: 'Playfair Display', serif;
     color: var(--primary-color);
+    padding: 20px;
   }
 
   .container {
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
     background-color: white;
     border-radius: 20px;
@@ -91,22 +104,22 @@
     background:
       linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
       url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80"><path d="M0 0 Q40 40 80 0 Q40 40 0 80 Q40 40 0 0" fill="%23FFB6C1" opacity="0.1"/></svg>');
-    padding: 40px;
+    padding: 20px;
     text-align: center;
   }
 
   h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--accent-color);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   .countdown {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin: 30px 0;
+    gap: 15px;
+    margin: 20px 0;
     flex-wrap: wrap;
   }
 
@@ -114,9 +127,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 120px;
+    min-width: 100px;
     background-color: rgba(139, 69, 19, 0.05);
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     transition: transform 0.3s ease;
   }
@@ -126,41 +139,61 @@
   }
 
   .number {
-    font-size: 48px;
+    font-size: 36px;
     font-weight: bold;
     color: var(--primary-color);
   }
 
   .label {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--accent-color);
     text-transform: uppercase;
     letter-spacing: 1px;
   }
 
   .wedding-date {
-    font-size: 1.5rem;
-    margin-top: 20px;
+    font-size: 1.2rem;
+    margin-top: 15px;
     color: var(--accent-color);
   }
 
   .wedding-location {
     font-family: 'Great Vibes', cursive;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
   }
 
   @media (max-width: 600px) {
+    main {
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
     .countdown {
-      gap: 15px;
+      gap: 10px;
     }
 
     .time-block {
-      min-width: 100px;
+      min-width: 80px;
     }
 
     .number {
-      font-size: 36px;
+      font-size: 28px;
+    }
+
+    .label {
+      font-size: 12px;
+    }
+
+    .wedding-date {
+      font-size: 1rem;
+    }
+
+    .wedding-location {
+      font-size: 1.5rem;
     }
   }
 </style>
