@@ -1,0 +1,5 @@
+.aider*
+.env
+.direnv
+
+node_modules
