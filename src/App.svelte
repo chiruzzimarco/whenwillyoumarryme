@@ -170,14 +170,18 @@
 
     h1 {
       font-size: 2rem;
+      margin-bottom: 10px;
     }
 
     .countdown {
+      flex-direction: column;
+      align-items: center;
       gap: 10px;
     }
 
     .time-block {
-      min-width: 80px;
+      width: 80%;
+      max-width: 300px;
     }
 
     .number {
