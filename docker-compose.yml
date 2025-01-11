@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wedding-countdown.rule=Host(`wedding.yourdomain.com`)"
+      - "traefik.http.routers.wedding-countdown.entrypoints=websecure"
+      - "traefik.http.routers.wedding-countdown.tls.certresolver=letsencrypt"
+    networks:
+      - traefik-network
+
+networks:
+  traefik-network:
+    external: true
