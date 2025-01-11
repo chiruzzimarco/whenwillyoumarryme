@@ -1,9 +1,10 @@
 <script>
   import { onMount } from 'svelte';
-  import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
+  import { differenceInYears, differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
 
   const MARRIAGE_DATE = new Date('2037-08-09');
 
+  let yearsLeft = 0;
   let daysLeft = 0;
   let hoursLeft = 0;
   let minutesLeft = 0;
@@ -11,7 +12,8 @@
 
   function updateCountdown() {
     const now = new Date();
-    daysLeft = differenceInDays(MARRIAGE_DATE, now);
+    yearsLeft = differenceInYears(MARRIAGE_DATE, now);
+    daysLeft = differenceInDays(MARRIAGE_DATE, now) % 365;
     hoursLeft = differenceInHours(MARRIAGE_DATE, now) % 24;
     minutesLeft = differenceInMinutes(MARRIAGE_DATE, now) % 60;
     secondsLeft = differenceInSeconds(MARRIAGE_DATE, now) % 60;
@@ -30,24 +32,28 @@
       <h1>Il tempo stringe...</h1>
       <div class="countdown">
         <div class="time-block">
+          <span class="number">{yearsLeft}</span>
+          <span class="label">Anni</span>
+        </div>
+        <div class="time-block">
           <span class="number">{daysLeft}</span>
-          <span class="label">Days</span>
+          <span class="label">Giorni</span>
         </div>
         <div class="time-block">
           <span class="number">{hoursLeft}</span>
-          <span class="label">Hours</span>
+          <span class="label">Ore</span>
         </div>
         <div class="time-block">
           <span class="number">{minutesLeft}</span>
-          <span class="label">Minutes</span>
+          <span class="label">Minuti</span>
         </div>
         <div class="time-block">
           <span class="number">{secondsLeft}</span>
-          <span class="label">Seconds</span>
+          <span class="label">Secondi</span>
         </div>
       </div>
       <p class="wedding-date">Buona fortuna, fino al giorno del nostro matrimonio! 💍</p>
-      <p class="wedding-location">August 9th, 2037</p>
+      <p class="wedding-location">9 Agosto 2037</p>
     </div>
   </div>
 </main>
@@ -101,6 +107,7 @@
     justify-content: center;
     gap: 30px;
     margin: 30px 0;
+    flex-wrap: wrap;
   }
 
   .time-block {
@@ -145,7 +152,6 @@
 
   @media (max-width: 600px) {
     .countdown {
-      flex-wrap: wrap;
       gap: 15px;
     }
 
