@@ -8,7 +8,6 @@
   let hoursLeft = 0;
   let minutesLeft = 0;
   let secondsLeft = 0;
-  let millisecondsLeft = 0;
 
   function updateCountdown() {
     const now = new Date();
@@ -16,12 +15,11 @@
     hoursLeft = differenceInHours(MARRIAGE_DATE, now) % 24;
     minutesLeft = differenceInMinutes(MARRIAGE_DATE, now) % 60;
     secondsLeft = differenceInSeconds(MARRIAGE_DATE, now) % 60;
-    millisecondsLeft = Math.floor(now.getMilliseconds() / 100) * 100; // Round to nearest 100ms
   }
 
   onMount(() => {
     updateCountdown();
-    const interval = setInterval(updateCountdown, 100); // Update every 100 milliseconds
+    const interval = setInterval(updateCountdown, 1000); // Update every second
     return () => clearInterval(interval);
   });
 </script>
@@ -46,10 +44,6 @@
         <div class="time-block">
           <span class="number">{secondsLeft}</span>
           <span class="label">Seconds</span>
-        </div>
-        <div class="time-block">
-          <span class="number">{millisecondsLeft}</span>
-          <span class="label">Milliseconds</span>
         </div>
       </div>
       <p class="wedding-date">Buona fortuna, fino al giorno del nostro matrimonio! 💍</p>
