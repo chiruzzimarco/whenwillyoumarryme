@@ -9,8 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@electric-sql/prisma": "latest",
-    "@electric-sql/tauri": "latest",
     "date-fns": "^2.30.0"
   },
   "devDependencies": {

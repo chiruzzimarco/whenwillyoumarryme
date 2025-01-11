@@ -8,14 +8,49 @@
   let hoursLeft = 0;
   let minutesLeft = 0;
 
+  // Store additional metadata in localStorage
+  function saveCountdownData(data) {
+    try {
+      localStorage.setItem('marriageCountdownData', JSON.stringify(data));
+    } catch (error) {
+      console.error('Failed to save countdown data', error);
+    }
+  }
+
+  function loadCountdownData() {
+    try {
+      const savedData = localStorage.getItem('marriageCountdownData');
+      return savedData ? JSON.parse(savedData) : null;
+    } catch (error) {
+      console.error('Failed to load countdown data', error);
+      return null;
+    }
+  }
+
   function updateCountdown() {
     const now = new Date();
     daysLeft = differenceInDays(MARRIAGE_DATE, now);
     hoursLeft = differenceInHours(MARRIAGE_DATE, now) % 24;
     minutesLeft = differenceInMinutes(MARRIAGE_DATE, now) % 60;
+
+    // Optional: Save additional metadata
+    saveCountdownData({
+      daysLeft,
+      hoursLeft,
+      minutesLeft,
+      lastUpdated: now.toISOString()
+    });
   }
 
   onMount(() => {
+    // Try to load saved data first
+    const savedData = loadCountdownData();
+    if (savedData) {
+      daysLeft = savedData.daysLeft;
+      hoursLeft = savedData.hoursLeft;
+      minutesLeft = savedData.minutesLeft;
+    }
+
     updateCountdown();
     const interval = setInterval(updateCountdown, 60000);
     return () => clearInterval(interval);
