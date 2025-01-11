@@ -3,7 +3,7 @@
   import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
 
   const MARRIAGE_DATE = new Date('2038-04-09');
-  
+
   let daysLeft = 0;
   let hoursLeft = 0;
   let minutesLeft = 0;
@@ -29,7 +29,7 @@
 <main>
   <div class="container">
     <div class="heart-background">
-      <h1>Our Love Story Continues...</h1>
+      <h1>Ti rimane ancora poco tempo...</h1>
       <div class="countdown">
         <div class="time-block">
           <span class="number">{daysLeft}</span>
@@ -52,7 +52,7 @@
           <span class="label">Milliseconds</span>
         </div>
       </div>
-      <p class="wedding-date">Until Our Wedding Day 💍</p>
+      <p class="wedding-date">Buona fortuna, fino al giorno del nostro matrimonio! 💍</p>
       <p class="wedding-location">April 9th, 2038</p>
     </div>
   </div>
@@ -88,7 +88,7 @@
   }
 
   .heart-background {
-    background: 
+    background:
       linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
       url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80"><path d="M0 0 Q40 40 80 0 Q40 40 0 80 Q40 40 0 0" fill="%23FFB6C1" opacity="0.1"/></svg>');
     padding: 40px;
